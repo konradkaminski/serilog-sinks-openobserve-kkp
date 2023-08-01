@@ -7,7 +7,7 @@ public class OpenObserveHttpClientResult
     private OpenObserveHttpClientResult(HttpResponseMessage responseMessage)
     {
         IsSuccess = responseMessage.IsSuccessStatusCode;
-        if (IsSuccess)
+        if (!IsSuccess)
         {
             Message = responseMessage.Content.ReadAsStringAsync().Result;
         }
