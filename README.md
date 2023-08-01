@@ -7,6 +7,11 @@ This project is a sink for the OpenObserver.
 
 ## Quick start
 
+Install sink in your project.
+```powershell
+> dotnet add package Serilog.Sinks.OpenObserve
+```
+
 Register the sink in code.
 ```csharp
 var logger = new LoggerConfiguration()

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sink.OpenObserve", "src\Serilog.Sink.OpenObserve\Serilog.Sink.OpenObserve.csproj", "{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve", "src\Serilog.Sinks.OpenObserve\Serilog.Sinks.OpenObserve.csproj", "{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
