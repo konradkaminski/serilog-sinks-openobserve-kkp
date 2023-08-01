@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sink.OpenObserve", "src\Serilog.Sink.OpenObserve\Serilog.Sink.OpenObserve.csproj", "{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

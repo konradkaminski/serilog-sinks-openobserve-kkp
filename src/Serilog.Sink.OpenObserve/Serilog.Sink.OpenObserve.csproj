@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>Serilog.Sink.OpenObserve-KKP</AssemblyName>
+        <PackageId>Serilog.Sink.OpenObserve-KKP</PackageId>
+        <Authors>Konrad Kamiński - Pawlak</Authors>
+        <RootNamespace>Serilog</RootNamespace>
+        <PackageTags>serilog;openobserve</PackageTags>
+        <PackageProjectUrl>https://github.com/konradkaminski/Serilog.Sink.OpenObserve</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="3.0.1" />
+      <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="3.1.0" />
+    </ItemGroup>
+
+</Project>
