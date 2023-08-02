@@ -7,21 +7,24 @@ using Serilog.Sinks.PeriodicBatching;
 
 namespace Serilog.Sinks.OpenObserve;
 
-public class OpenObserveSink : IBatchedLogEventSink, IDisposable
+public class Sink : IBatchedLogEventSink, IDisposable
 {
-    private readonly OpenObserveHttpClient _client;
+    private readonly HttpClient _client;
 
-    public OpenObserveSink(OpenObserveHttpClient client)
+    public Sink(HttpClient client)
     {
         _client = client;
     }
     
     public async Task EmitBatchAsync(IEnumerable<LogEvent> batch)
     {
-        var result = await _client.Send(batch);
+
+        var data = batch.Select(x => new LogEntry(x));
+
+        var result = await _client.Send(data);
         if (!result.IsSuccess)
         {
-            throw new Exception(result.Message);
+            throw new Exception("Incorrect response");
         }
     }
 

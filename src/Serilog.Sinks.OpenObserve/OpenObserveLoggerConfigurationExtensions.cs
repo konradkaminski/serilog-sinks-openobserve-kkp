@@ -1,6 +1,7 @@
 ﻿using Serilog.Configuration;
 using Serilog.Sinks.OpenObserve;
 using Serilog.Sinks.PeriodicBatching;
+using System;
 
 namespace Serilog;
 
@@ -10,13 +11,17 @@ public static class OpenObserveLoggerConfigurationExtensions
         this LoggerSinkConfiguration loggerConfiguration,
         string url,
         string organization,
-        string login, 
-        string password,
+        string login = "", 
+        string password = "",
         string streamName = "default"
         )
     {
-        var sink = new OpenObserveSink(new OpenObserveHttpClient(url, organization, login, password, streamName));
-        var options = new PeriodicBatchingSinkOptions();
-        return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, options));
+
+        if (string.IsNullOrEmpty(url)) throw new ArgumentException(nameof(url));
+        if (string.IsNullOrEmpty(organization)) throw new ArgumentException(nameof(organization));
+        if (string.IsNullOrEmpty(login)) throw new ArgumentException(nameof(login));
+        if (string.IsNullOrEmpty(password)) throw new ArgumentException(nameof(password));
+        var sink = new Sink(new HttpClient(url, organization, login, password, streamName));
+        return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, new PeriodicBatchingSinkOptions()));
     }
 }

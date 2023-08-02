@@ -21,7 +21,44 @@ var logger = new LoggerConfiguration()
         "organization"
         "login",
         "password"
-    )
+    ).CreateLogger();
+```
+
+You can optionally add parameter `stream` to write logs to specified stream (default value is `default`)
+
+Use serilog log method to log details.
+
+```csharp
+Log.Debug("Debug message");
+```
+
+### Using `appsettings.json` configuration
+
+First install package [Serilog.Settings.Configuration](https://github.com/serilog/serilog-settings-configuration) if you don have it:
+
+```powershell
+dotnet add package Serilog.Settings.Configuration
+```
+
+In your `appsettings.json` file, under the `Serilog` node, add following entries:
+
+```json
+{
+  "Serilog": {
+    "Using": ["Serilog.Sinks.OpenObserve-KKP"],
+    "WriteTo": [
+      { 
+        "Name": "OpenObserve", 
+        "Args": { 
+          "url": "[api-url]",
+          "organization": "[your-organization]",
+          "login": "[your-login]",
+          "password": "[your-password]"
+        }
+      }
+    ]
+  }
+}
 ```
 
 More information about using Serilog is available in the [Serilog Documentation](https://github.com/serilog/serilog/wiki).
