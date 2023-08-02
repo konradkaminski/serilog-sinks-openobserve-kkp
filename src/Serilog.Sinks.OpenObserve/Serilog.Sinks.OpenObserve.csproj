@@ -7,9 +7,12 @@
         <Authors>Konrad Kamiński - Pawlak</Authors>
         <RootNamespace>Serilog</RootNamespace>
         <PackageTags>serilog;openobserve</PackageTags>
-        <PackageProjectUrl>https://github.com/konradkaminski/Serilog.Sink.OpenObserve</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <PackageVersion>1.0.1</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
