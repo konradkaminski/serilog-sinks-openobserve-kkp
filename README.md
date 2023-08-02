@@ -1,4 +1,5 @@
-# Serilog Sink for OpenObserve [![Build status](https://ci.appveyor.com/api/projects/status/d73v1w8rejebgtrv/branch/main?svg=true)](https://ci.appveyor.com/project/konradkaminski/serilog-sink-openobserve-kkp/branch/main)
+# Serilog Sink for OpenObserve [![Build status](https://ci.appveyor.com/api/projects/status/d73v1w8rejebgtrv/branch/main?svg=true)](https://ci.appveyor.com/project/konradkaminski/serilog-sink-openobserve-kkp/branch/main) ![Nuget](https://img.shields.io/nuget/v/Serilog.Sinks.OpenObserve-KKP?logo=nuget)
+
 
 This Serilog Sink allows to log to [OpenObserve](https://openobserve.ai/).
 
