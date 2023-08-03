@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -11,7 +11,7 @@ public class HttpClient
 {
     private const string AUTH_SCHEME = "Basic";
     private const string URL_API = "api";
-    private const string URL_JSON = "_json";
+    private const string URL_MULTI = "_multi";
     private readonly System.Net.Http.HttpClient _httpClient;
     private readonly string _endpointUrl;
 
@@ -26,18 +26,19 @@ public class HttpClient
         };
         _endpointUrl = BuildEndpointUrl(organization, streamName);
     }
-    public HttpClient(string url, string organization, string login, string password, string streamName = "default")
-        : this(url, organization, ToBase64String($"{login}:{password}"), streamName) 
+    public HttpClient(string url, string organization, string key, string password, string streamName = "default")
+        : this(url, organization, ToBase64String($"{key}:{password}"), streamName) 
     {
     }
-    public async Task<HttpClientResponse> Send(IEnumerable<LogEntry> batch)
+    public async Task<HttpClientResponse> Send(string data)
     {
-        var responseObject = await _httpClient.PostAsJsonAsync(_endpointUrl, batch);
+        var content = new StringContent(data, Encoding.UTF8, "application/json");
+        var responseObject = await _httpClient.PostAsync(_endpointUrl, content);
         return JsonSerializer.Deserialize<HttpClientResponse>(await responseObject.Content.ReadAsStringAsync());
     }
-    private static string BuildEndpointUrl(string organization, string streamName) => $"/{URL_API}/{Cleanup(organization)}/{Cleanup(streamName)}/{URL_JSON}";
+    private static string BuildEndpointUrl(string organization, string streamName) => $"/{URL_API}/{Cleanup(organization)}/{Cleanup(streamName)}/{URL_MULTI}";
     private static string Cleanup(string value) => value.Trim('/');
-    private static string ToBase64String(string authenticationString) => Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(authenticationString));
+    private static string ToBase64String(string authenticationString) => Convert.ToBase64String(Encoding.ASCII.GetBytes(authenticationString));
 
     
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Serilog.Events;
@@ -10,18 +11,24 @@ namespace Serilog.Sinks.OpenObserve;
 public class Sink : IBatchedLogEventSink, IDisposable
 {
     private readonly HttpClient _client;
+    private readonly LogEntryFormatter _logEntryFormatter;
 
     public Sink(HttpClient client)
     {
+        _logEntryFormatter = new LogEntryFormatter();
         _client = client;
     }
     
     public async Task EmitBatchAsync(IEnumerable<LogEvent> batch)
     {
+        var payload = new StringWriter();
+        var logEvents = batch.ToList();
+        foreach (var evt in logEvents)
+        {
+            _logEntryFormatter.Format(evt, payload);
+        }
 
-        var data = batch.Select(x => new LogEntry(x));
-
-        var result = await _client.Send(data);
+        var result = await _client.Send(payload.ToString());
         if (!result.IsSuccess)
         {
             throw new Exception("Incorrect response");

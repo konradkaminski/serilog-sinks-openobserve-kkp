@@ -12,7 +12,7 @@ public static class OpenObserveLoggerConfigurationExtensions
         string url,
         string organization,
         string login = "", 
-        string password = "",
+        string key = "",
         string streamName = "default"
         )
     {
@@ -20,8 +20,8 @@ public static class OpenObserveLoggerConfigurationExtensions
         if (string.IsNullOrEmpty(url)) throw new ArgumentException(nameof(url));
         if (string.IsNullOrEmpty(organization)) throw new ArgumentException(nameof(organization));
         if (string.IsNullOrEmpty(login)) throw new ArgumentException(nameof(login));
-        if (string.IsNullOrEmpty(password)) throw new ArgumentException(nameof(password));
-        var sink = new Sink(new HttpClient(url, organization, login, password, streamName));
+        if (string.IsNullOrEmpty(key)) throw new ArgumentException(nameof(key));
+        var sink = new Sink(new HttpClient(url, organization, login, key, streamName));
         return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, new PeriodicBatchingSinkOptions()));
     }
 }
