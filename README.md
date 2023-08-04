@@ -10,7 +10,7 @@ This project is a sink for the OpenObserver.
 
 Install sink in your project.
 ```powershell
-> dotnet add package Serilog.Sinks.OpenObserve
+dotnet add package Serilog.Sinks.OpenObserve-KKP
 ```
 
 Register the sink in code.
