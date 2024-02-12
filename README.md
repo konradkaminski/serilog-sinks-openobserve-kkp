@@ -25,7 +25,7 @@ var logger = new LoggerConfiguration()
     ).CreateLogger();
 ```
 
-You can optionally add parameter `stream` to write logs to specified stream (default value is `default`)
+You can optionally add parameter `streamName` to write logs to specified stream (default value is `default`)
 
 Use serilog log method to log details (please check sample project).
 
