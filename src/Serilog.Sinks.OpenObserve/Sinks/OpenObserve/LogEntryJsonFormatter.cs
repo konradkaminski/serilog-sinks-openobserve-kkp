@@ -10,7 +10,7 @@ namespace Serilog.Sinks.OpenObserve;
 
 public class LogEntryJsonFormatter : ITextFormatter
 {
-    readonly JsonValueFormatter _valueFormatter;
+    private readonly JsonValueFormatter _valueFormatter;
     
     public LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null)
     {

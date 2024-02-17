@@ -14,13 +14,13 @@ public static class OpenObserveLoggerConfigurationExtensions
         string login = "", 
         string key = "",
         string streamName = "default"
-        )
+    )
     {
 
-        if (string.IsNullOrEmpty(url)) throw new ArgumentException(nameof(url));
-        if (string.IsNullOrEmpty(organization)) throw new ArgumentException(nameof(organization));
-        if (string.IsNullOrEmpty(login)) throw new ArgumentException(nameof(login));
-        if (string.IsNullOrEmpty(key)) throw new ArgumentException(nameof(key));
+        if (string.IsNullOrEmpty(url)) throw new ArgumentException(null, nameof(url));
+        if (string.IsNullOrEmpty(organization)) throw new ArgumentException(null, nameof(organization));
+        if (string.IsNullOrEmpty(login)) throw new ArgumentException(null, nameof(login));
+        if (string.IsNullOrEmpty(key)) throw new ArgumentException(null, nameof(key));
         var sink = new Sink(new HttpClient(url, organization, login, key, streamName));
         return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, new PeriodicBatchingSinkOptions()));
     }
