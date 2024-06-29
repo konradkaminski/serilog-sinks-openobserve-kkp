@@ -30,7 +30,7 @@ public class Sink(HttpClient client) : IBatchedLogEventSink, IDisposable
 
     public Task OnEmptyBatchAsync()
     {
-        return EmitBatchAsync(Enumerable.Empty<LogEvent>());
+        return EmitBatchAsync([]);
     }
 
     public void Dispose()

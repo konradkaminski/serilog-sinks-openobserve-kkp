@@ -9,10 +9,10 @@ namespace Serilog.Sinks.OpenObserve;
 
 public class HttpClient
 {
-    private const string AUTH_SCHEME = "Basic";
-    private const string URL_API = "api";
-    private const string URL_MULTI = "_multi";
-    private const string MEDIA_TYPE = "application/json";
+    private const string AuthScheme = "Basic";
+    private const string UrlApi = "api";
+    private const string UrlMulti = "_multi";
+    private const string MediaType = "application/json";
     private readonly System.Net.Http.HttpClient _httpClient;
     private readonly string _endpointUrl;
 
@@ -21,25 +21,32 @@ public class HttpClient
         _httpClient = new System.Net.Http.HttpClient
         {
             BaseAddress = new Uri(url),
-            DefaultRequestHeaders = {
-                Authorization = new AuthenticationHeaderValue(AUTH_SCHEME, authToken)
+            DefaultRequestHeaders =
+            {
+                Authorization = new AuthenticationHeaderValue(AuthScheme, authToken)
             }
         };
         _endpointUrl = BuildEndpointUrl(organization, streamName);
     }
+
     public HttpClient(string url, string organization, string key, string password, string streamName = "default")
-        : this(url, organization, ToBase64String($"{key}:{password}"), streamName) 
+        : this(url, organization, ToBase64String($"{key}:{password}"), streamName)
     {
     }
+
     public async Task<HttpClientResponse> Send(string data)
     {
-        var content = new StringContent(data, Encoding.UTF8, MEDIA_TYPE);
+        var content = new StringContent(data, Encoding.UTF8, MediaType);
         var responseObject = await _httpClient.PostAsync(_endpointUrl, content);
-        return await JsonSerializer.DeserializeAsync<HttpClientResponse>(await responseObject.Content.ReadAsStreamAsync());
+        return await JsonSerializer.DeserializeAsync<HttpClientResponse>(
+            await responseObject.Content.ReadAsStreamAsync());
     }
-    private static string BuildEndpointUrl(string organization, string streamName) => $"/{URL_API}/{Cleanup(organization)}/{Cleanup(streamName)}/{URL_MULTI}";
-    private static string Cleanup(string value) => value.Trim('/');
-    private static string ToBase64String(string authenticationString) => Convert.ToBase64String(Encoding.ASCII.GetBytes(authenticationString));
 
-    
+    private static string BuildEndpointUrl(string organization, string streamName) =>
+        $"/{UrlApi}/{Cleanup(organization)}/{Cleanup(streamName)}/{UrlMulti}";
+
+    private static string Cleanup(string value) => value.Trim('/');
+
+    private static string ToBase64String(string authenticationString) =>
+        Convert.ToBase64String(Encoding.ASCII.GetBytes(authenticationString));
 }

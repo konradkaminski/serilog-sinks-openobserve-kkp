@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
-namespace OpenObsere.Sample;
+namespace Serilog.Sinks.OpenObserve.Sample;
 
 public static class Program
 {
@@ -11,6 +10,7 @@ public static class Program
 
     private static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+            .UseConsoleLifetime()
             .ConfigureAppConfiguration((builder) =>
             {
                 builder
@@ -18,12 +18,6 @@ public static class Program
                     .AddJsonFile("appsettings.json")
                     .AddUserSecrets<CustomBackgroundService>(true);
             })
-            .ConfigureServices((_, services) =>
-            {
-                services.AddHostedService<CustomBackgroundService>();
-            })
-            .UseSerilog((context, configuration) =>
-            {
-                configuration.ReadFrom.Configuration(context.Configuration);
-            });
+            .ConfigureServices((_, services) => { services.AddHostedService<CustomBackgroundService>(); })
+            .UseSerilog((context, configuration) => { configuration.ReadFrom.Configuration(context.Configuration); });
 }
