@@ -12,6 +12,7 @@ public class HttpClient
     private const string AUTH_SCHEME = "Basic";
     private const string URL_API = "api";
     private const string URL_MULTI = "_multi";
+    private const string MEDIA_TYPE = "application/json";
     private readonly System.Net.Http.HttpClient _httpClient;
     private readonly string _endpointUrl;
 
@@ -32,9 +33,9 @@ public class HttpClient
     }
     public async Task<HttpClientResponse> Send(string data)
     {
-        var content = new StringContent(data, Encoding.UTF8, "application/json");
+        var content = new StringContent(data, Encoding.UTF8, MEDIA_TYPE);
         var responseObject = await _httpClient.PostAsync(_endpointUrl, content);
-        return JsonSerializer.Deserialize<HttpClientResponse>(await responseObject.Content.ReadAsStringAsync());
+        return await JsonSerializer.DeserializeAsync<HttpClientResponse>(await responseObject.Content.ReadAsStreamAsync());
     }
     private static string BuildEndpointUrl(string organization, string streamName) => $"/{URL_API}/{Cleanup(organization)}/{Cleanup(streamName)}/{URL_MULTI}";
     private static string Cleanup(string value) => value.Trim('/');

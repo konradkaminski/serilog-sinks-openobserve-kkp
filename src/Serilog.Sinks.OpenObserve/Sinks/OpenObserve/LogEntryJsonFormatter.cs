@@ -8,15 +8,10 @@ using Serilog.Formatting.Json;
 
 namespace Serilog.Sinks.OpenObserve;
 
-public class LogEntryJsonFormatter : ITextFormatter
+public class LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null) : ITextFormatter
 {
-    private readonly JsonValueFormatter _valueFormatter;
-    
-    public LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null)
-    {
-        _valueFormatter = valueFormatter ?? new JsonValueFormatter(typeTagName: "$type");
-    }
-    
+    private const string TYPE_TAG_NAME = "$type";
+    private readonly JsonValueFormatter _valueFormatter = valueFormatter ?? new JsonValueFormatter(typeTagName: TYPE_TAG_NAME);
     public void Format(LogEvent logEvent, TextWriter output)
     {
         FormatEvent(logEvent, output, _valueFormatter);

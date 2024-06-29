@@ -1,20 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
-        <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
+        <AssemblyName>Serilog.Sinks.OpenObserve</AssemblyName>
+        <PackageId>Serilog.Sinks.OpenObserve</PackageId>
         <Authors>Konrad Kamiński - Pawlak</Authors>
         <RootNamespace>Serilog</RootNamespace>
         <PackageTags>serilog;openobserve</PackageTags>
         <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <PackageVersion>1.0.2</PackageVersion>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <PackageVersion>1.0.3</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
-        <LangVersion>10</LangVersion>
+        <LangVersion>12</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>

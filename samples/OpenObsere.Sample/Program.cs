@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -16,7 +15,8 @@ public static class Program
             {
                 builder
                     .AddEnvironmentVariables()
-                    .AddJsonFile("appsettings.json");
+                    .AddJsonFile("appsettings.json")
+                    .AddUserSecrets<CustomBackgroundService>(true);
             })
             .ConfigureServices((_, services) =>
             {
