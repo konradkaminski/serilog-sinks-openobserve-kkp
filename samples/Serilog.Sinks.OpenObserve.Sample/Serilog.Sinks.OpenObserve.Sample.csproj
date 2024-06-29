@@ -2,7 +2,11 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>632f2f2d-933b-49dd-8617-ccd84da410c6</UserSecretsId>
+        <LangVersion>10</LangVersion>
+        <TargetFrameworks>net8.0;net48;net6.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>

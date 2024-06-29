@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
         <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
         <Authors>Konrad Kamiński - Pawlak</Authors>
@@ -10,15 +9,23 @@
         <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
-        <AssemblyVersion>1.0.2</AssemblyVersion>
-        <PackageVersion>1.0.2</PackageVersion>
+        <AssemblyVersion>1.0.3</AssemblyVersion>
+        <PackageVersion>1.0.3</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>12</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Serilog" Version="3.0.1" />
       <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
       <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="3.1.0" />
+      <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="" />
     </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve", "src\Serilog.Sinks.OpenObserve\Serilog.Sinks.OpenObserve.csproj", "{E5023DD6-5676-4DD9-B1D2-AC04F08EF861}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenObsere.Sample", "samples\OpenObsere.Sample\OpenObsere.Sample.csproj", "{EC78C249-C85C-49BC-9B0B-EE5899844DDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve.Sample", "samples\Serilog.Sinks.OpenObserve.Sample\Serilog.Sinks.OpenObserve.Sample.csproj", "{EC78C249-C85C-49BC-9B0B-EE5899844DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

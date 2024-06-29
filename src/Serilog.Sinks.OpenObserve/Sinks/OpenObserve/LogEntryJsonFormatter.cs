@@ -8,15 +8,13 @@ using Serilog.Formatting.Json;
 
 namespace Serilog.Sinks.OpenObserve;
 
-public class LogEntryJsonFormatter : ITextFormatter
+public class LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null) : ITextFormatter
 {
-    readonly JsonValueFormatter _valueFormatter;
-    
-    public LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null)
-    {
-        _valueFormatter = valueFormatter ?? new JsonValueFormatter(typeTagName: "$type");
-    }
-    
+    private const string TypeTagName = "$type";
+
+    private readonly JsonValueFormatter _valueFormatter =
+        valueFormatter ?? new JsonValueFormatter(typeTagName: TypeTagName);
+
     public void Format(LogEvent logEvent, TextWriter output)
     {
         FormatEvent(logEvent, output, _valueFormatter);
@@ -38,7 +36,7 @@ public class LogEntryJsonFormatter : ITextFormatter
         JsonValueFormatter.WriteQuotedJsonString(logEvent.MessageTemplate.Text, output);
         output.Write(",\"@i\":\"");
         var id = EventIdHash.Compute(logEvent.MessageTemplate.Text);
-        output.Write(id.ToString("x8",CultureInfo.InvariantCulture));
+        output.Write(id.ToString("x8", CultureInfo.InvariantCulture));
         output.Write('"');
         output.Write(",\"@l\":\"");
         output.Write(logEvent.Level);
