@@ -3,7 +3,7 @@
     <PropertyGroup>
         <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
         <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
-        <Authors>Konrad Kamiński - Pawlak</Authors>
+        <Authors>Serilog Contributors; Konrad Kamiński - Pawlak</Authors>
         <RootNamespace>Serilog</RootNamespace>
         <PackageTags>serilog;openobserve</PackageTags>
         <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
