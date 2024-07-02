@@ -16,7 +16,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageIcon>serilog-sink-nuget.png</PackageIcon>
-        <Description>A Serilog sink that writes events to Openobserve using JSON and HTTP/HTTPS.</Description>
+        <Description>A Serilog sink that writes events to OpenObserve using JSON and HTTP/HTTPS.</Description>
     </PropertyGroup>
 
     <ItemGroup>
