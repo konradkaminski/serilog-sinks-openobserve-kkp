@@ -1,6 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <AssemblyVersion>1.0.5</AssemblyVersion>
+        <PackageVersion>1.0.5</PackageVersion>
         <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
         <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
         <Authors>Serilog Contributors; Konrad Kamiński - Pawlak</Authors>
@@ -9,23 +11,24 @@
         <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
-        <AssemblyVersion>1.0.4</AssemblyVersion>
-        <PackageVersion>1.0.4</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <LangVersion>12</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageIcon>serilog-sink-nuget.png</PackageIcon>
+        <Description>A Serilog sink that writes events to OpenObserve using JSON and HTTP/HTTPS.</Description>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Serilog" Version="4.0.0"/>
         <PackageReference Include="Serilog.Expressions" Version="5.0.0"/>
         <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0"/>
-        <PackageReference Include="System.Text.Json" Version="8.0.3"/>
+        <PackageReference Include="System.Text.Json" Version="8.0.5"/>
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="" />
+        <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="\"/>
+        <None Include="..\..\serilog-sink-nuget.png" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
 
 </Project>
