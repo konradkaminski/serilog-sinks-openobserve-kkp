@@ -4,8 +4,8 @@
         <AssemblyVersion>1.0.5</AssemblyVersion>
         <PackageVersion>1.0.5</PackageVersion>
         <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
-        <Authors>Konrad Kamiński - Pawlak</Authors>
         <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
+        <Authors>Serilog Contributors; Konrad Kamiński - Pawlak</Authors>
         <RootNamespace>Serilog</RootNamespace>
         <PackageTags>serilog;openobserve</PackageTags>
         <PackageProjectUrl>https://github.com/konradkaminski/serilog-sinks-openobserve-kkp</PackageProjectUrl>
