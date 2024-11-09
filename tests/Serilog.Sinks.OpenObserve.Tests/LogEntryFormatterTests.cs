@@ -1,10 +1,9 @@
 using FluentAssertions;
 using Serilog.Events;
 using Serilog.Parsing;
-using Serilog.Sink.OpenObserve.Tests.Fixtures.Builders;
-using Serilog.Sinks.OpenObserve;
+using Serilog.Sinks.OpenObserve.Tests.Builders;
 
-namespace Serilog.Sink.OpenObserve.Tests;
+namespace Serilog.Sinks.OpenObserve.Tests;
 
 public class LogEntryFormatterTests
 {

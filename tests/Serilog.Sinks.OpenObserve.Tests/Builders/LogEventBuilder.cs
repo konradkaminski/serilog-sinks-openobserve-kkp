@@ -1,6 +1,6 @@
 ﻿using Serilog.Events;
 
-namespace Serilog.Sink.OpenObserve.Tests.Fixtures.Builders;
+namespace Serilog.Sinks.OpenObserve.Tests.Builders;
 
 public class LogEventBuilder
 {
