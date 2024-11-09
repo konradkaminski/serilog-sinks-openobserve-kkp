@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\Serilog.Sinks.OpenObserve\Serilog.Sinks.OpenObserve.csproj"/>
+        <ProjectReference Include="..\..\src\Serilog.Sinks.OpenObserve\Serilog.Sinks.OpenObserve.csproj"/>
     </ItemGroup>
 
 </Project>

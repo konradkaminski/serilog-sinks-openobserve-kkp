@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve.Sample", "samples\Serilog.Sinks.OpenObserve.Sample\Serilog.Sinks.OpenObserve.Sample.csproj", "{EC78C249-C85C-49BC-9B0B-EE5899844DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sink.OpenObserve.Tests", "Serilog.Sink.OpenObserve.Tests\Serilog.Sink.OpenObserve.Tests.csproj", "{7A9E8E16-DC5C-42B6-B1BB-1DBB57E2E829}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve.Tests", "tests\Serilog.Sinks.OpenObserve.Tests\Serilog.Sinks.OpenObserve.Tests.csproj", "{F7BACDFD-3F68-467E-AC93-432885F6ECCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{EC78C249-C85C-49BC-9B0B-EE5899844DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC78C249-C85C-49BC-9B0B-EE5899844DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC78C249-C85C-49BC-9B0B-EE5899844DDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A9E8E16-DC5C-42B6-B1BB-1DBB57E2E829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A9E8E16-DC5C-42B6-B1BB-1DBB57E2E829}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A9E8E16-DC5C-42B6-B1BB-1DBB57E2E829}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A9E8E16-DC5C-42B6-B1BB-1DBB57E2E829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
