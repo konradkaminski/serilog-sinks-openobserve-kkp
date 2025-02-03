@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using Serilog.Events;
 using Serilog.Parsing;
 using Serilog.Sinks.OpenObserve.Tests.Builders;
@@ -18,7 +18,7 @@ public class LogEntryFormatterTests
         var defaultEvent = LogEventBuilder.Init().Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 
     [Theory]
@@ -37,7 +37,7 @@ public class LogEntryFormatterTests
         var defaultEvent = LogEventBuilder.Init().WithDefinedLogLevel(logEventLevel).Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class LogEntryFormatterTests
             .WithDefinedException(new Exception("Exception message")).Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 
     [Fact]
@@ -68,7 +68,7 @@ public class LogEntryFormatterTests
             .Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 
     [Fact]
@@ -88,7 +88,7 @@ public class LogEntryFormatterTests
             .Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 
     [Fact]
@@ -113,6 +113,6 @@ public class LogEntryFormatterTests
             .Build();
         var writer = new StringWriter();
         _logEntryFormatter.Format(defaultEvent, writer);
-        writer.ToString().Should().Be(expected);
+        writer.ToString().ShouldBe(expected);
     }
 }

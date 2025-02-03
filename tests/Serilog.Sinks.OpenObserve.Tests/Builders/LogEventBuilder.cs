@@ -6,9 +6,9 @@ public class LogEventBuilder
 {
     private DateTimeOffset _dateTimeOffset = new DateTimeOffset(2024, 1, 1, 18, 20, 30, TimeSpan.Zero);
     private LogEventLevel _logEventLevel = LogEventLevel.Debug;
-    private Exception _exception = null;
+    private Exception? _exception;
     private MessageTemplate _messageTemplate = MessageTemplate.Empty;
-    private List<LogEventProperty> _logEventProperties = new List<LogEventProperty>();
+    private readonly List<LogEventProperty> _logEventProperties = [];
 
     private LogEventBuilder()
     {
@@ -31,7 +31,7 @@ public class LogEventBuilder
         return this;
     }
 
-    public LogEventBuilder WithDefinedException(Exception exception)
+    public LogEventBuilder WithDefinedException(Exception? exception)
     {
         _exception = exception;
         return this;

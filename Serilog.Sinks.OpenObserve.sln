@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.OpenObserve.Tests", "tests\Serilog.Sinks.OpenObserve.Tests\Serilog.Sinks.OpenObserve.Tests.csproj", "{F7BACDFD-3F68-467E-AC93-432885F6ECCA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9DBD6555-4369-4BDB-A7F9-75698E99A25C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4194F146-1EE7-462E-8D2B-F29D70E38C98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{B07DB53D-E8FF-4B00-9B7B-DDF92FFED843}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +31,10 @@ Global
 		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7BACDFD-3F68-467E-AC93-432885F6ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC78C249-C85C-49BC-9B0B-EE5899844DDD} = {B07DB53D-E8FF-4B00-9B7B-DDF92FFED843}
+		{F7BACDFD-3F68-467E-AC93-432885F6ECCA} = {4194F146-1EE7-462E-8D2B-F29D70E38C98}
+		{E5023DD6-5676-4DD9-B1D2-AC04F08EF861} = {9DBD6555-4369-4BDB-A7F9-75698E99A25C}
 	EndGlobalSection
 EndGlobal

@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyVersion>1.0.5</AssemblyVersion>
-        <PackageVersion>1.0.5</PackageVersion>
+        <AssemblyVersion>1.0.6</AssemblyVersion>
+        <PackageVersion>1.0.6</PackageVersion>
         <AssemblyName>Serilog.Sinks.OpenObserve-KKP</AssemblyName>
         <PackageId>Serilog.Sinks.OpenObserve-KKP</PackageId>
         <Authors>Serilog Contributors; Konrad Kamiński - Pawlak</Authors>
