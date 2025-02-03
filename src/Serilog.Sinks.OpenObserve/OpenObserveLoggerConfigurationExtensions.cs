@@ -1,5 +1,6 @@
 ﻿using System;
 using Serilog.Configuration;
+using Serilog.Events;
 using Serilog.Sinks.OpenObserve;
 using Serilog.Sinks.PeriodicBatching;
 
@@ -13,7 +14,8 @@ public static class OpenObserveLoggerConfigurationExtensions
         string organization,
         string login = "",
         string key = "",
-        string streamName = "default"
+        string streamName = "default",
+        LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum
     )
     {
         if (string.IsNullOrEmpty(url))
@@ -25,6 +27,6 @@ public static class OpenObserveLoggerConfigurationExtensions
         if (string.IsNullOrEmpty(key))
             throw new ArgumentException($"Argument is null or empty: {nameof(key)}", nameof(key));
         var sink = new Sink(new HttpClient(url, organization, login, key, streamName));
-        return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, new PeriodicBatchingSinkOptions()));
+        return loggerConfiguration.Sink(new PeriodicBatchingSink(sink, new PeriodicBatchingSinkOptions()), restrictedToMinimumLevel);
     }
 }

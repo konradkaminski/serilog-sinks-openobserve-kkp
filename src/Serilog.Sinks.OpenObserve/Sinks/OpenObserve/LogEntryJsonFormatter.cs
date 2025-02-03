@@ -17,30 +17,23 @@ public class LogEntryJsonFormatter(JsonValueFormatter valueFormatter = null) : I
 
     public void Format(LogEvent logEvent, TextWriter output)
     {
+        if (logEvent == null) throw new ArgumentNullException(nameof(logEvent));
+        if (output == null) throw new ArgumentNullException(nameof(output));
+
         FormatEvent(logEvent, output, _valueFormatter);
         output.WriteLine();
     }
 
     private static void FormatEvent(LogEvent logEvent, TextWriter output, JsonValueFormatter valueFormatter)
     {
-        if (logEvent == null) throw new ArgumentNullException(nameof(logEvent));
-        if (output == null) throw new ArgumentNullException(nameof(output));
-        if (valueFormatter == null) throw new ArgumentNullException(nameof(valueFormatter));
-
-        output.Write("{\"@t\":\"");
-        output.Write(logEvent.Timestamp.UtcDateTime.ToString("O"));
-        output.Write("\",\"@m\":");
         var message = logEvent.MessageTemplate.Render(logEvent.Properties, CultureInfo.InvariantCulture);
-        JsonValueFormatter.WriteQuotedJsonString(message, output);
-        output.Write(",\"@mt\":");
-        JsonValueFormatter.WriteQuotedJsonString(logEvent.MessageTemplate.Text, output);
-        output.Write(",\"@i\":\"");
         var id = EventIdHash.Compute(logEvent.MessageTemplate.Text);
-        output.Write(id.ToString("x8", CultureInfo.InvariantCulture));
-        output.Write('"');
-        output.Write(",\"@l\":\"");
-        output.Write(logEvent.Level);
-        output.Write('\"');
+
+        output.Write($"{{\"@t\":\"{logEvent.Timestamp.UtcDateTime:O}\",\"@m\":");
+        JsonValueFormatter.WriteQuotedJsonString(message, output);
+        output.Write($",\"@mt\":");
+        JsonValueFormatter.WriteQuotedJsonString(logEvent.MessageTemplate.Text, output);
+        output.Write($",\"@i\":\"{id:x8}\",\"@l\":\"{logEvent.Level}\"");
 
         if (logEvent.Exception != null)
         {
