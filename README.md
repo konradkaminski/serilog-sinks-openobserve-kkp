@@ -56,11 +56,11 @@ In your `appsettings.json` file, under the `Serilog` node, add following entries
 ```json
 {
   "Serilog": {
-    "Using": ["Serilog.Sinks.OpenObserve-KKP"],
-    "MinimumLevel": "Debug",
+    "Using": ["Serilog.Sinks.OpenObserve-KKP"], // Enable OpenObserve-KKP sink
+    "MinimumLevel": "Debug", // General minimum level of Serilog
     "WriteTo": [
       {
-        "Name": "OpenObserve",
+        "Name": "OpenObserve", // Name of this sink, don't change
         "Args": {
           "url": "https://api.openobserve.ai",
           "organization": "[organization]",
