@@ -8,6 +8,8 @@ The sink is built to make use of the REST endpoint of the OpenObserve server.
 
 ## Quick start
 
+Precondition: Serilog has to be referenced in your project.
+
 Install sink in your project.
 ```powershell
 dotnet add package Serilog.Sinks.OpenObserve-KKP
