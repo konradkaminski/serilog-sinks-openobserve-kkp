@@ -44,6 +44,13 @@ First install [Serilog.Settings.Configuration](https://github.com/serilog/serilo
 dotnet add package Serilog.Settings.Configuration
 ```
 
+Register the sink in code (Program.cs or similar).
+```csharp
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+	.CreateLogger();
+```
+
 In your `appsettings.json` file, under the `Serilog` node, add following entries:
 
 ```json
