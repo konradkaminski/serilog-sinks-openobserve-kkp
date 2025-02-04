@@ -22,7 +22,7 @@ var logger = new LoggerConfiguration()
     .WriteTo
     .OpenObserve(
         "url",
-        "organization"
+        "organization",
         "login",
         "key"
     ).CreateLogger();
