@@ -19,13 +19,15 @@ var logger = new LoggerConfiguration()
     .WriteTo
     .OpenObserve(
         "url",
-        "organization"
+        "organization",
         "login",
         "key"
     ).CreateLogger();
 ```
+All required details: `url`, `organization`, `login` and `password` you can find in OpenObserve admin panel (Data sources > Custom).
 
-You can optionally add parameter `streamName` to write logs to specified stream (default value is `default`)
+* You can optionally add parameter `streamName` to write logs to specified stream (default value is `default`).
+* You can optionally add parameter `restrictedToMinimumLevel` (default value is `LevelAlias.Minimum`).
 
 Use serilog log method to log details (please check sample project).
 
