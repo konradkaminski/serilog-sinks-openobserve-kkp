@@ -118,7 +118,7 @@ More information about using Serilog is available in the [Serilog Documentation]
 | Parameter | Description | Example |
 | -- | -- | -- |
 | **Url** | OpenObserve api endpoint | `https://api.openobserve.ai` (SaaS) <br/>`https://myserver.com/api` (self-hosted) |
-| **Organization** | Identifier of your organization within OpenObserve. Can be seen in the web interface on the top right. <br/> OpenObserve SaaS: please ensure to use _your_ organization identifier. <br/>Self-hosted: you may use any value you prefer. Defaults to "default". The organization will be created automatically. | `SoftwareBros` |
+| **Organization** | Identifier of your organization within OpenObserve. Can be seen in the web interface on the top right. <br/><br/>OpenObserve SaaS: please ensure to use _your_ organization identifier. <br/><br/>Self-hosted: you may use any value you prefer. Defaults to "default". <br/>The organization will be created automatically. | `SoftwareBros` |
 | **Login** | Username aka mail address of the OpenObserve user | `name@myserver.com` |
 | **Key** | Password or Token for authentication for the provided user | `SecureToken` |
 | **StreamName** | ObenObserve stream identifier | `default` |
