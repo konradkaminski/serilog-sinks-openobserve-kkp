@@ -51,7 +51,7 @@ var logger = new LoggerConfiguration()
 	.CreateLogger();
 ```
 
-In your `appsettings.json` file, under the `Serilog` node, add following entries:
+In your `appsettings.json` file, extend the `Serilog` node or fully add the following:
 
 ```json
 {
