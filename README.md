@@ -136,6 +136,8 @@ The OpenObserve web interface provides configuration examples under "Data source
 "Data sources" - "Custom" - "Logs" - "Curl" shows the current username and token (format: `username:token`).  
 "Data sources" - "Custom" - "Logs" - "Syslog-Ng" shows a configuration similiar (not identical!) to one required for this sink.  
 
+Note: Currently OpenObserve only allows one token per user. It can be resetted in the "Data sources" page however no additional tokens can be generated. The token cannot be limited to any stream or organization.
+
 ### What is an organization?
 An organization is a management unit of users. For the self hosted system you may create any amount of organizations. The active organization can be seen in the web interface top right corner.
 
