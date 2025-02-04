@@ -1,10 +1,10 @@
 # Serilog Sink for OpenObserve [![Build status](https://ci.appveyor.com/api/projects/status/d73v1w8rejebgtrv/branch/main?svg=true)](https://ci.appveyor.com/project/konradkaminski/serilog-sink-openobserve-kkp/branch/main) ![Nuget](https://img.shields.io/nuget/v/Serilog.Sinks.OpenObserve-KKP?logo=nuget)
 
 
-This Serilog Sink allows to log to [OpenObserve](https://openobserve.ai/).
+This [Serilog](https://github.com/serilog/serilog) sink allows to log to [OpenObserve](https://openobserve.ai/) as the observability backend from your .NET application.
 
-## What is this sink ?
-This project is a sink for the OpenObserver.
+The sink is built to make use of the REST endpoint of the OpenObserve server.
+
 
 ## Quick start
 
@@ -65,12 +65,13 @@ In your `appsettings.json` file, under the `Serilog` node, add following entries
   }
 }
 ```
-With provided configuration following code should be send:
 
+With provided configuration following data will be send to the observability backend:
 ```json
 {"@t":"2023-08-03T20:53:20.2872427Z","@m":"Debug message","@mt":"Debug message","@i":"9515f1e2","@l":"Debug","SourceContext":"OpenObsere.Sample.CustomBackgroundService","Application":"OpenObserve.Tests"}
 ```
-On server side it should looks like:
+
+On server side it should look like this:
 ```json
 {
   "_i": "9515f1e2",
