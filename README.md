@@ -33,7 +33,7 @@ You can optionally add parameter `streamName` to write logs to specified stream 
 Use serilog log method to log details (please check sample project).
 
 ```csharp
-_logger.Debug("Debug message");
+logger.Debug("Debug message");
 ```
 
 ### Using `appsettings.json` configuration
@@ -76,6 +76,11 @@ In your `appsettings.json` file, under the `Serilog` node, add following entries
 }
 ```
 
+Use serilog log method to log details (please check sample project).
+
+```csharp
+logger.Debug("Debug message");
+```
 With provided configuration following data will be send to the observability backend:
 ```json
 {"@t":"2023-08-03T20:53:20.2872427Z","@m":"Debug message","@mt":"Debug message","@i":"9515f1e2","@l":"Debug","SourceContext":"OpenObsere.Sample.CustomBackgroundService","Application":"OpenObserve.Tests"}
