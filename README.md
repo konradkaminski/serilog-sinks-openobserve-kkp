@@ -64,8 +64,10 @@ In your `appsettings.json` file, extend the `Serilog` node or fully add the foll
         "Args": {
           "url": "https://api.openobserve.ai",
           "organization": "[organization]",
-          "login": "[login]",
-          "key": "[key]"
+          "login": "[username]",
+          "key": "[password or token]",
+          "streamName": "[custom stream name if desired]", // Optional
+          "minimumLevel": "Information" // Optional
         }
       }
     ],
@@ -120,6 +122,7 @@ More information about using Serilog is available in the [Serilog Documentation]
 | **Login** | Username aka mail address of the OpenObserve user | `name@myserver.com` |
 | **Key** | Password or Token for authentication for the provided user | `SecureToken` |
 | **StreamName** | ObenObserve stream identifier | `default` |
+| **MinimumLevel** | Overwrite minimum log severity to be handled for this sink | `Information`<br/>Default: the same as Serilog global </br>Options: `Serilog.Events.LogEventLevel`  |
 
 Please note:
 It is NOT recommended to store your user password in a configuration of your application. Those credentials allow to login into the OpenObserve web interface. It is highly recommended to _only_ use the token as key.
