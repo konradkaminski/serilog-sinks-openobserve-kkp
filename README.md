@@ -111,3 +111,35 @@ Please note:
 
 More information about using Serilog is available in the [Serilog Documentation](https://github.com/serilog/serilog/wiki).
 
+## Configuration specification
+### Parameters
+| Parameter | Description | Example |
+| -- | -- | -- |
+| **Url** | OpenObserve api endpoint | `https://api.openobserve.ai` (SaaS) <br/>`https://myserver.com/api` (self-hosted) |
+| **Organization** | Identifier of your organization within OpenObserve. Can be seen in the web interface on the top right. <br/> OpenObserve SaaS: please ensure to use _your_ organization identifier. <br/>Self-hosted: you may use any value you prefer. Defaults to "default". The organization will be created automatically. | `SoftwareBros` |
+| **Login** | Username aka mail address of the OpenObserve user | `name@myserver.com` |
+| **Key** | Password or Token for authentication for the provided user | `SecureToken` |
+| **StreamName** | ObenObserve stream identifier | `default` |
+
+Please note:
+It is NOT recommended to store your user password in a configuration of your application. Those credentials allow to login into the OpenObserve web interface. It is highly recommended to _only_ use the token as key.
+
+### What is a token?
+A token is a generated text string, having the function of a password, usually used for authentication. It allows to authenticate against the api without providing your actual user password.
+
+### How to retrieve my credentials / token
+The OpenObserve web interface provides configuration examples under "Data sources". 
+
+"Data sources" - "Custom" - "Logs" - "Curl" shows the current username and token (format: `username:token`).  
+"Data sources" - "Custom" - "Logs" - "Syslog-Ng" shows a configuration similiar (not identical!) to one required for this sink.  
+
+### What is an organization?
+An organization is a management unit of users. For the self hosted system you may create any amount of organizations. The active organization can be seen in the web interface top right corner.
+
+### What is a stream?
+A stream is a storage endpoint within OpenObserve. Streams can be created in the web interface but will also be automatically created as soon as log data specifying a stream is inbound. A stream contains specific storage configuration such as data retention.
+
+### REST
+The sink is creating a REST POST command to the provided endpoint. Specifically the data will be sent to endpoint `POST /api/{organization}/{stream}/_multi`.
+
+Please refer to the [OpenObserve API documentation](https://openobserve.ai/docs/api/) for more information.
