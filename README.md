@@ -81,6 +81,9 @@ Use serilog log method to log details (please check sample project).
 ```csharp
 logger.Debug("Debug message");
 ```
+
+### Data generated
+
 With provided configuration following data will be send to the observability backend:
 ```json
 {"@t":"2023-08-03T20:53:20.2872427Z","@m":"Debug message","@mt":"Debug message","@i":"9515f1e2","@l":"Debug","SourceContext":"OpenObsere.Sample.CustomBackgroundService","Application":"OpenObserve.Tests"}
@@ -99,6 +102,7 @@ On server side it should look like this:
   "sourcecontext": "OpenObsere.Sample.CustomBackgroundService"
 }
 ```
+
 Please note:
 * field `_timestamp` is added on server side
 * field `_mt` contains message template, e.g `Counter: {CounterValue}`
