@@ -15,7 +15,8 @@ Install sink in your project.
 dotnet add package Serilog.Sinks.OpenObserve-KKP
 ```
 
-Register the sink in code.
+### Using code configuration
+Register the sink in code (Program.cs or similar).
 ```csharp
 var logger = new LoggerConfiguration()
     .WriteTo
