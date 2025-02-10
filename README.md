@@ -27,16 +27,14 @@ var logger = new LoggerConfiguration()
         "key"
     ).CreateLogger();
 ```
-All required details: `url`, `organization`, `login` and `password` you can find in OpenObserve admin panel (Data sources > Custom).
-
-* You can optionally add parameter `streamName` to write logs to specified stream (default value is `default`).
-* You can optionally add parameter `restrictedToMinimumLevel` (default value is `LevelAlias.Minimum`).
 
 Use serilog log method to log details (please check sample project).
 
 ```csharp
 logger.Debug("Debug message");
 ```
+
+See [Configuration specification](#Configuration-specification) for information about all possible parameters.
 
 ### Using `appsettings.json` configuration
 
@@ -69,7 +67,7 @@ In your `appsettings.json` file, extend the `Serilog` node or fully add the foll
           "login": "[username]",
           "key": "[password or token]",
           "streamName": "[custom stream name if desired]", // Optional
-          "minimumLevel": "Information" // Optional
+          "restrictedToMinimumLevel": "Information" // Optional
         }
       }
     ],
@@ -85,6 +83,8 @@ Use serilog log method to log details (please check sample project).
 ```csharp
 logger.Debug("Debug message");
 ```
+
+See [Configuration specification](#Configuration-specification) for information about all possible parameters.
 
 ### Data generated
 
@@ -124,7 +124,7 @@ More information about using Serilog is available in the [Serilog Documentation]
 | **Login** | Username aka mail address of the OpenObserve user | `name@myserver.com` |
 | **Key** | Password or Token for authentication for the provided user | `SecureToken` |
 | **StreamName** | ObenObserve stream identifier | `default` |
-| **MinimumLevel** | Overwrite minimum log severity to be handled for this sink | `Information`<br/>Default: the same as Serilog global </br>Options: `Serilog.Events.LogEventLevel`  |
+| **RestrictedToMinimumLevel** | Overwrite minimum log severity to be handled for this sink | `Information`<br/>Default: the same as Serilog global </br>Options: `Serilog.Events.LogEventLevel`  |
 
 Please note:
 It is NOT recommended to store your user password in a configuration of your application. Those credentials allow to login into the OpenObserve web interface. It is highly recommended to _only_ use the token as key.
